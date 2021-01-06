@@ -6,12 +6,39 @@
       <v-card color="blue-grey darken-2" dark>
         <v-card-text class="white--text">
           <v-layout justify-center>
-            <v-flex class="text-center">
+            <v-flex v-if="weather.weather" class="text-center">
               <h4>Temperature</h4>
               <h1 class="display-1">{{ weather.name }}</h1>
               <img :src="icon" alt="weather icon" />
               <p>
                 <span class="display-1">{{ temp() }}&#176;C</span>
+                <span class="caption ml-4">{{
+                  weather.weather[0].description
+                }}</span>
+              </p>
+            </v-flex>
+
+            <v-flex v-if="weather.weather" class="text-center">
+              <h4>Temperature</h4>
+              <h1 class="display-1">{{ weather.name }}</h1>
+              <img :src="icon" alt="weather icon" />
+              <p>
+                <span class="display-1">{{ temp() }}&#176;C</span>
+                <span class="caption ml-4">{{
+                  weather.weather[0].description
+                }}</span>
+              </p>
+            </v-flex>
+
+            <v-flex v-if="weather.weather" class="text-center">
+              <h4>Temperature</h4>
+              <h1 class="display-1">{{ weather.name }}</h1>
+              <img :src="icon" alt="weather icon" />
+              <p>
+                <span class="display-1">{{ temp() }}&#176;C</span>
+                <span class="caption ml-4">{{
+                  weather.weather[0].description
+                }}</span>
               </p>
             </v-flex>
           </v-layout>
