@@ -1,12 +1,11 @@
 <template>
   <v-container>
-    <!--<v-layout>-->
     <v-flex xs12>
       <h1 class="display-1 text-center">Weather App</h1>
       <v-card color="blue-grey darken-2" dark>
         <v-card-text class="white--text">
           <v-layout justify-center>
-            <v-flex v-if="weather.weather" class="text-center">
+            <v-flex class="text-center">
               <h4>Temperature</h4>
               <h1 class="display-1">{{ weather.name }}</h1>
               <img :src="icon" alt="weather icon" />
@@ -18,7 +17,7 @@
               </p>
             </v-flex>
 
-            <v-flex v-if="weather.weather" class="text-center">
+            <v-flex class="text-center">
               <h4>Wind & Pressure:</h4>
               <h3 class="headline">
                 Wind: {{ weather.wind.speed }} m/s ({{ weather.wind.deg }}
@@ -32,7 +31,7 @@
               </h3>
             </v-flex>
 
-            <v-flex v-if="weather.weather" class="text-center">
+            <v-flex class="text-center">
               <h4>Other</h4>
               <h3 class="headline mt-4">
                 Max Temperature:
@@ -57,8 +56,6 @@
         ></v-text-field>
       </v-form>
     </v-flex>
-
-    <!--</v-layout>-->
   </v-container>
 </template>
 
@@ -72,12 +69,13 @@ export default {
       .then((res) => {
         return { weather: res }
       })
-  }, // server side rendering
+  },
   data() {
     return {
       city: 'London',
+      appId: '54f640ee2778b99f51b719f876d3090b',
     }
-  },
+  }, // server side rendering
   computed: {
     icon() {
       return this.weather.weather
@@ -92,7 +90,7 @@ export default {
     getWeatherInfo() {
       this.$axios
         .$get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=54f640ee2778b99f51b719f876d3090b`
+          `https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${this.appId}`
         )
         .then((res) => (this.weather = res))
     },
