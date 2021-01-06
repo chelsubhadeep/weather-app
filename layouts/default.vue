@@ -4,7 +4,7 @@
       <v-toolbar color="indigo" dark>
         <v-app-bar-nav-icon></v-app-bar-nav-icon>
         <v-toolbar-title>
-          <n-link to="/">Weather Report</n-link>
+          <n-link to="/">Learning Nuxt</n-link>
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-toolbar-items class="hidden-sm-and-down">
