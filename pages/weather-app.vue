@@ -10,6 +10,9 @@
               <h4>Temperature</h4>
               <h1 class="display-1">{{ weather.name }}</h1>
               <img :src="icon" alt="weather icon" />
+              <p>
+                <span class="display-1">{{ temp() }}&#176;C</span>
+              </p>
             </v-flex>
           </v-layout>
         </v-card-text>
@@ -56,6 +59,9 @@ export default {
 	`
         )
         .then((res) => (this.weather = res))
+    },
+    temp() {
+      return this.weather.main ? Math.round(this.weather.main.temp - 273) : ''
     },
   },
 }
