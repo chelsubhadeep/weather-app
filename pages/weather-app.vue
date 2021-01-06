@@ -65,7 +65,7 @@ export default {
   asyncData({ params, $axios }) {
     return $axios
       .$get(
-        `https://api.openweathermap.org/data/2.5/weather?q=Kolkata&appid=54f640ee2778b99f51b719f876d3090b`
+        `https://api.openweathermap.org/data/2.5/weather?q=London&appid=54f640ee2778b99f51b719f876d3090b`
       )
       .then((res) => {
         return { weather: res }
@@ -73,7 +73,7 @@ export default {
   }, // server side rendering
   data() {
     return {
-      city: 'Kolkata',
+      city: 'London',
     }
   },
   computed: {
