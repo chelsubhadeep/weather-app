@@ -3,7 +3,9 @@
     <v-main>
       <v-toolbar color="indigo" dark>
         <v-app-bar-nav-icon></v-app-bar-nav-icon>
-        <v-toolbar-title>NuxtJs Tutorial</v-toolbar-title>
+        <v-toolbar-title>
+          <n-link to="/">NuxtJs Tutorial</n-link>
+        </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-toolbar-items class="hidden-sm-and-down">
           <v-btn text><n-link to="/weather-app">Weather App</n-link></v-btn>

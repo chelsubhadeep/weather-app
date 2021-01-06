@@ -62,10 +62,18 @@
 
 <script>
 export default {
+  asyncData({ params, $axios }) {
+    return $axios
+      .$get(
+        `https://api.openweathermap.org/data/2.5/weather?q=Kolkata&appid=54f640ee2778b99f51b719f876d3090b`
+      )
+      .then((res) => {
+        return { weather: res }
+      })
+  }, // server side rendering
   data() {
     return {
-      city: 'London',
-      weather: {},
+      city: 'Kolkata',
     }
   },
   computed: {
@@ -82,8 +90,7 @@ export default {
     getWeatherInfo() {
       this.$axios
         .$get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=54f640ee2778b99f51b719f876d3090b
-	`
+          `https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=54f640ee2778b99f51b719f876d3090b`
         )
         .then((res) => (this.weather = res))
     },
