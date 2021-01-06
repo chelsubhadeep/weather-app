@@ -4,7 +4,15 @@
     <v-flex xs12>
       <h1 class="display-1 text-center">Weather App</h1>
       <v-card color="blue-grey darken-2" dark>
-        <v-card-text class="white--text"> Here is the card </v-card-text>
+        <v-card-text class="white--text">
+          <v-layout justify-center>
+            <v-flex class="text-center">
+              <h4>Temperature</h4>
+              <h1 class="display-1">{{ weather.name }}</h1>
+              <img :src="icon" alt="weather icon" />
+            </v-flex>
+          </v-layout>
+        </v-card-text>
       </v-card>
     </v-flex>
 
@@ -29,6 +37,13 @@ export default {
       city: 'London',
       weather: {},
     }
+  },
+  computed: {
+    icon() {
+      return this.weather.weather
+        ? `https://openweathermap.org/img/w/${this.weather.weather[0].icon}.png`
+        : ``
+    },
   },
   created() {
     this.getWeatherInfo()

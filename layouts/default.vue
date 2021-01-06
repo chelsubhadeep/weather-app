@@ -10,9 +10,7 @@
         </v-toolbar-items>
       </v-toolbar>
       <transition>
-        <v-main>
-          <nuxt />
-        </v-main>
+        <nuxt />
       </transition>
     </v-main>
   </v-app>
